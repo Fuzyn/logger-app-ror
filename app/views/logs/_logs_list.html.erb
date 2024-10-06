@@ -1,0 +1,13 @@
+<% @logs.each do |log| %>
+  <div class="row">
+    <p class="id-row"><%= log.id %>.</p>
+    <p class="message-row"><%= log.message %></p>
+    <p class="user-id-row"><%= log.user_id %></p>
+    <p class="user-email-row"><%= log.user_email %></p>
+    <p class="date-row"><%= log.created_at %></p>
+  </div>
+<% end %>
+
+<% if @logs.empty? %>
+  <p>No logs found</p>
+<% end %>

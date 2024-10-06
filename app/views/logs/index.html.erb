@@ -1,0 +1,29 @@
+<h1>Log List</h1>
+
+<%= form_with url: logs_path, method: :get, data: { turbo_frame: 'log_frame' } do %>
+  <div>
+    <%= label_tag :query, "Filter by message" %>
+    <%= text_field_tag :query, params[:query], placeholder: "Search logs..." %>
+    <%= submit_tag "Search" %>
+  </div>
+<% end %>
+
+<div class="row">
+  <p class="id-row"></p>
+  <p class="message-row"><b>Message</b></p>
+  <p class="user-id-row"><b>User ID</b></p>
+  <p class="user-email-row"><b>User Email</b></p>
+  <p class="date-row"><b>Created At</b></p>
+</div>
+
+<div class="logs-table">
+  <%= turbo_frame_tag "paginate_page_#{@logs.current_page}" do %>
+    <%= render 'logs_list' %>
+    <% if @logs.next_page %>
+      <%= turbo_frame_tag "paginate_page_#{@logs.next_page}", src: logs_path(page: @logs.next_page, query: params[:query]), loading: 'lazy' do %>
+        Loading...
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+

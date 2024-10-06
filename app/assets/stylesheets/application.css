@@ -1,0 +1,38 @@
+.row {
+    display: flex;
+}
+
+.logs-table .row:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.logs-table .row:nth-child(odd) {
+    background-color: #e5e5e5;
+}
+
+.row p {
+    margin: 0;
+}
+
+.id-row {
+    width: 50px;
+}
+
+.message-row {
+    width: -webkit-fill-available;
+}
+
+.user-id-row {
+    width: 100px;
+    text-align: center;
+}
+
+.user-email-row {
+    width: 150px;
+    text-align: center;
+}
+
+.date-row {
+    width: 300px;
+    text-align: center;
+}
